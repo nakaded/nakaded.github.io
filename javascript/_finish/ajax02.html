@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Ajax</title>
+<style>
+#container{
+	width: 500px;
+	height: 500px;
+	border: 1px solid #F00;
+}
+</style>
+</head>
+<body>
+	<button id="btn">Ajax</button>
+	<div id="container">
+		<ul>
+
+		</ul>
+	</div>
+
+	<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script>
+
+	$(function(){
+
+		$('#btn').on('click', function(evt){
+			console.log('click');
+
+			$.ajax({
+				url:'data.json',
+				type: 'GET',
+				dataType: 'json'
+			}).done(function(data){
+				console.log('成功');
+
+				showHTML(data);
+
+			}).fail(function(){
+				console.log('失敗しました');
+			});
+
+			function showHTML(data){
+				console.log(data[0].name);
+				for (var i = 0; i < data.length; i++) {
+					$('#container ul').append('<li>名前は' + data[i].name + 'です。住所は'+ data[i].addres + 'に住んでいます。趣味は' + data[i].hobby[0] + 'と' + data[i].hobby[1] + 'です。</li>');
+				}
+			}
+		});
+
+	});
+	</script>
+</body>
+</html>

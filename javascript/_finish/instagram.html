@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Instagram</title>
+
+
+</head>
+<body>
+
+<!-- キーワード入力 -->
+<input type="text" id="keyword">
+<input type="button" value="ボタン" id="btn">
+
+
+<!-- 結果表示 -->
+<div id="bigPhoto"></div>
+<div id="result"></div>
+
+
+<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script>
+
+$(function() {
+
+	var photos;
+
+	$('#btn').click(function () {
+		 var keyword = $("#keyword").val();
+		 // alert(keyword);
+
+		 // var url ="https://api.instagram.com/v1/tags/" + keyword + "/media/recent?client_id=0ff08dd8a9f342dd91554f7895b7a8fc";
+
+		 var url ="https://api.instagram.com/v1/tags/" + keyword + "/media/recent?client_id=bf6c9ed5f64d401b8b81c182af3d8b10";
+
+
+
+
+
+		 $.ajax({
+		 		url:url,
+		 		dataType:"json",
+		 		success:function(serverData){
+		 			// console.log(serverData.data);
+		 			// photos配列にデータを保存
+		 			photos = serverData.data;
+
+		 			// 写真を表示
+		 			showPhotos();
+		 		},
+		 		error:function(){
+		 			// エラー
+		 		}
+		 });
+	});
+
+
+	// 写真を表示
+	function showPhotos (argument) {
+		// console.log("showPhotos:"+photos);
+		// 今あるものを空にする
+		$("#result").empty();
+
+		for (var i = 0; i < photos.length; i++) {
+			var file = photos[i].images.thumbnail.url;
+			var id = photos[i].id;
+			var imgTag = "<img src='"+file+"' id='"+id+"'>";
+			$("#result").append(imgTag);
+			$("#result:last-child").hide();
+			$("#result:last-child").fadeIn();
+		};
+
+		$('#result img').on("click",function(){
+			var id = $(this).attr("id");
+			// alert(id);
+			showBigPhoto(id);
+		});
+	}
+
+	function showBigPhoto(id){
+		// forを使ってphotosの中から同じidのものを探す
+
+		for (var i = 0; i < photos.length; i++) {
+
+			if(id == photos[i].id){
+				var file = photos[i].images.standard_resolution.url;
+				var img = "<img src='"+file+"'>";
+				$("#bigPhoto").html(img);
+			}
+		};
+	}
+
+
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Geo</title>
+</head>
+<body>
+<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script>
+$(function() {
+
+	// GPSから緯度経度
+	navigator.geolocation.getCurrentPosition(function(pos){
+
+		var lat = pos.coords.latitude;
+		var lon = pos.coords.longitude;
+
+		// 小数点２桁を切り捨て
+    // lat = calLocation(lat);
+    // lon = calLocation(lon);
+    lat = Math.ceil(lat);
+    lon = Math.ceil(lon);
+
+		console.log(lat,lon);
+
+
+		const apikey = 'f3cdcde042f3a124d0f5c7474e9b0792';
+		var url = 'http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=' + apikey ;
+		// http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=44db6a862fba0b067b1930da0d769e98
+
+
+		// 通信を実行
+    $.ajax({
+        url:url,
+        dataType:"json",
+    }).done(function(data){
+			console.log(data);
+		}).fail(function(){
+			console.log('ajax error ---------------');
+		})
+
+
+
+
+	},function(err){
+			console.log("geo err ---------------");
+	});
+
+
+
+});
+</script>
+
+
+</body>
+</html>

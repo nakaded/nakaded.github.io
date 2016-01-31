@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>おみくじ</title>
+</head>
+<body>
+    <p>あなたの運勢は</p>
+    <ul id="kekka">
+        <li>結果:<span class="resultKekka"></a></li>
+        <li>恋愛:<span class="resultLove"></a></li>
+        <li>仕事:<span class="resultBusiness"></a></li>
+    </ul>
+    <button id="btn">占う</button>
+    <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script>
+    $(function(){
+
+      // 1.配列でおみくじを作ってください
+      // 2.配列の中に結果のオブジェクトをつくる
+      // result : '大吉' , love :'整う', business：'成功'
+      // result : '吉' , love :'耐える', business：'動くな'
+      // result : '凶' , love :'別れる', business：'失敗'
+      var omikuji = [
+        {
+          result: '大吉',
+          love: '整う',
+          business: '成功'
+        },{
+          result: '吉',
+          love: '耐える',
+          business: '動くな'
+        },{
+          result: '凶',
+          love: '別れる',
+          business: '失敗'
+        }
+      ];
+
+      $('#btn').on('click',function(){
+
+        // 乱数
+        var randNum = Math.floor(Math.random()*3);
+        console.log(randNum);
+
+
+        $('.resultKekka').text(omikuji[randNum].result);
+        $('.resultLove').text(omikuji[randNum].love);
+        $('.resultBusiness').text(omikuji[randNum].business);
+      });
+    });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>DeviceOrientation</title>
+
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script>
+
+	$(function(){
+		// DeviceOrientation Event
+		window.addEventListener("deviceorientation", deviceorientationHandler);
+
+		// ジャイロセンサーの値が変化
+		function deviceorientationHandler(evt) {
+
+			console.log(evt);
+			// X軸
+			var x = evt.beta;
+			// Y軸
+			var y = evt.gamma;
+			// Z軸
+			var z = evt.alpha;
+
+			$("ul li:eq(0)").text(x);
+			$("ul li:eq(1)").text(y);
+			$("ul li:eq(2)").text(z);
+		}
+	});
+	</script>
+</body>
+</html>

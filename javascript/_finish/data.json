@@ -1,0 +1,12 @@
+[
+  {
+    "name":"yonekura",
+    "addres":"kawasaki",
+    "hobby":["散歩","音楽"]
+  },
+  {
+    "name":"goto",
+    "addres":"tokyo",
+    "hobby":["LIG","LIG"]
+  }
+]
