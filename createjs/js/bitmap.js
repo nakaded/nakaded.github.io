@@ -5,8 +5,8 @@ $(function(){
 
   // 画像を保存する配列
   var manifest = [
-    {src:'img/tomato.png'}
-	{src:"img/pumpkin.png"}
+    {src:'img/tomato.png'},
+	{src:"img/pumpkin.png"},
 	{src:"img/greenpeppar.png"}
   ];
 
