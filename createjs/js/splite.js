@@ -23,6 +23,7 @@ $(function(){
   loadQueue.addEventListener("complete", function(evt){
     console.log('読み込み完了');
     showVege();
+	
   });
 
 
