@@ -4,7 +4,7 @@ $(function(){
 	var stage = new createjs.Stage("canvasEl");
 
   // 画像を保存する配列
-  var vcSprite =[
+  var manifest =[
     {src:"img/calcium.png"},
 	{src:"img/vitaminC.png"},
   ];
@@ -16,7 +16,7 @@ $(function(){
   // loadQueue.setMaxConnections(6);
 
   // 読み込み開始
-  loadQueue.loadManifest(vcSprite);
+  loadQueue.loadManifest(manifest);
 
 
   // 全部読み込み終わったら
