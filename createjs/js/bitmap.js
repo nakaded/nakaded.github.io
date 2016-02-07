@@ -25,16 +25,20 @@ $(function(){
     showVege();
   });
 
+  loadQueue.addEventListener("progress",function(evt){
+	 console.log(evt.progress);
+  });
+
 function showVege(){
 	var tomato = new createjs.Bitmap(manifest[0].src);
 	tomato.x = 100;
 	tomato.y =	100;
-	stage.addchild(tomato);
+	stage.addChild(tomato);
 
 	var pumpkin = new createjs.Bitmap(manifest[1].src);
 	pumpkin.x = 200;
 	pumpkin.y = 200;
-	stage.addchild(pumpkin);
+	stage.addChild(pumpkin);
 }
 
 
