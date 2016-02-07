@@ -35,7 +35,8 @@ function showVege(){
 	vitaminC.x = 150;
 	vitaminC.y = 400;
 	vitaminC.alpha = 0;
-	createjs.Tween.get(vitaminC).to({alpha:1},500).walk(1000).call(vitaminCWalk).to({x:500},4000)
+
+	createjs.Tween.get(vitaminC).wait({alpha:1},500).walk(1000).call(vitaminCWalk).to({x:500},4000)
 	.call(vitaminCstand);
 
 
