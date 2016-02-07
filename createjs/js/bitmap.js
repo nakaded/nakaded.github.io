@@ -23,7 +23,7 @@ $(function(){
   // 全部読み込み終わったら
   loadQueue.addEventListener("complete", function(evt){
     console.log('読み込み完了');
-    addStage();
+    addVege();
   });
 
 function showVege(){
@@ -31,6 +31,11 @@ function showVege(){
 	tomato.x = 100;
 	tomato.y =	100;
 	stage.addchild(tomato);
+
+	var pumpkin = new createjs.Bitmap(manifest[1].src);
+	pumpkin.x = 200;
+	pumpkin.y = 200;
+	stage.addchild(pumpkin);
 }
 
 
