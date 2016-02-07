@@ -47,7 +47,7 @@ function showVege(){
 	}
 
 	stage.update();
-};
+	};
 
 
 
