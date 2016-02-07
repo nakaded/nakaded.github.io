@@ -30,7 +30,6 @@ $(function(){
 function showVege(){
 
 	var vcSprite = new createjs.SpriteSheet(vitaminCSprite);
-
 	var vitaminC = new createjs.Sprite(vcSprite,"stand");
 	stage.addChild(vitaminC);
 	vitaminC.x = 150;
