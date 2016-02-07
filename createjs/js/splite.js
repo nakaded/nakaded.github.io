@@ -39,10 +39,10 @@ function showVege(){
 	createjs.Tween.get(vitaminC).wait(2000).call(vitaminCWalk).to({x: 500}, 4000).call(vitaminCstand);
 
 	function vitaminCWalk(){
-		vitaminC.gotoAnfPlay("walk");
+		vitaminC.gotoAndPlay("walk");
 	}
 	function vitaminCstand(){
-		vitaminC.gotoAnfPlay("stand");
+		vitaminC.gotoAndPlay("stand");
 	}
 
 	stage.update();
