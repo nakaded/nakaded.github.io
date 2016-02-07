@@ -4,7 +4,7 @@ $(function(){
 	var stage = new createjs.Stage("canvasEl");
 
   // 画像を保存する配列
-  var manifest =[
+  var vcSprite =[
     {src:"img/calcium.png"},
 	{src:"img/vitaminC.png"},
   ];
@@ -16,14 +16,14 @@ $(function(){
   // loadQueue.setMaxConnections(6);
 
   // 読み込み開始
-  loadQueue.loadManifest(manifest);
+  loadQueue.loadManifest(vcSprite);
 
 
   // 全部読み込み終わったら
   loadQueue.addEventListener("complete", function(evt){
     console.log('読み込み完了');
     showVege();
-	
+
   });
 
 
@@ -36,7 +36,6 @@ function showVege(){
 	vitaminC.x = 150;
 	vitaminC.y = 400;
 	vitaminC.alpha = 0;
-
 	createjs.Tween.get(vitaminC).to({alpha:1},500).walk(1000).call(vitaminCWalk).to({x:500},4000)
 	.call(vitaminCstand);
 
