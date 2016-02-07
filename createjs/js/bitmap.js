@@ -7,7 +7,7 @@ $(function(){
   var manifest = [
     {src:'img/tomato.png'},
 	{src:"img/pumpkin.png"},
-	{src:"img/greenpeppar.png"}
+	{src:"img/greenPeppar.png"}
   ];
 
   // loadQueueクラス
