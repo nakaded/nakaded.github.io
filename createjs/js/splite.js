@@ -38,12 +38,7 @@ function showVege(){
 
 	creatjs.Tween.get(vitaminC).to({alpha:1},500).walk(1000).to({x:500},400);
 
-stage.update();
-
-	createjs.Ticker.timingMode = createjs.Ticker.RAF_SYNCHED;
-	createjs.Ticker.setFPS(30);
-	createjs.Ticker.addEventListener('tick',function(){
-
-  stage.update();})
+	stage.update();
+};
 
 });
