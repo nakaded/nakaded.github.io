@@ -26,6 +26,12 @@ $(function(){
     addStage();
   });
 
+function showVege(){
+	var tomato = new createjs.Bitmap(manifest[0].src);
+	tomato.x = 100;
+	tomato.y =	100;
+	stage.addchild(tomato);
+}
 
 
 	createjs.Ticker.timingMode = createjs.Ticker.RAF_SYNCHED;
